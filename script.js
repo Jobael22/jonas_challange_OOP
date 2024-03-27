@@ -61,9 +61,11 @@
 
 // console.log(arr.unique());
 
+
+
 // Challenge = 1 
 
-'strict';
+'use strict';
 
 const Car = function (make, speed){
     this.make = make;
