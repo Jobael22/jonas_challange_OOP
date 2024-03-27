@@ -65,30 +65,66 @@
 
 // Challenge = 1 
 
-'use strict';
+// 'use strict';
 
-const Car = function (make, speed){
+// const Car = function (make, speed){
+//     this.make = make;
+//     this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function(){
+//     this.speed += 10;
+//     console.log(`${this.make} going at ${this.speed} km/h`);
+// }
+
+// Car.prototype.break = function(){
+//     this.speed -= 5;
+//     console.log(`${this.make} going at ${this.speed} km/h`);
+// }
+
+// const bmw = new Car ('BMW', 120);
+// const mercedes = new Car ('Mercedes', 95);
+
+// bmw.accelerate();
+// bmw.break();
+// bmw.break();
+// mercedes.break();
+// bmw.break();
+// mercedes.accelerate();
+// bmw.accelerate();
+
+
+// challenge 2
+
+class CarCl {constructor(make, speed){
     this.make = make;
     this.speed = speed;
 };
 
-Car.prototype.accelerate = function(){
+accelerate(){
     this.speed += 10;
     console.log(`${this.make} going at ${this.speed} km/h`);
 }
 
-Car.prototype.break = function(){
+break(){
     this.speed -= 5;
     console.log(`${this.make} going at ${this.speed} km/h`);
 }
 
-const bmw = new Car ('BMW', 120);
-const mercedes = new Car ('Mercedes', 95);
+get speedUS(){
+    return this.speed / 1.6;
+}
 
-bmw.accelerate();
-bmw.break();
-bmw.break();
-mercedes.break();
-bmw.break();
-mercedes.accelerate();
-bmw.accelerate();
+set speedUS(speed){
+    this.speed = speed * 1.6;
+}
+
+}
+
+const ford = new CarCl('Ford',120);
+console.log(ford.speedUS);
+ford.accelerate();
+ford.accelerate();
+ford.break();
+ford.speedUS = 50;
+console.log(ford);
